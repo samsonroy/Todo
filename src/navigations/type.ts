@@ -1,7 +1,7 @@
 export enum StackRouteName {
-  Home = 'Home',
+  TodoList = 'TodoList',
 }
 
 export type StackParamList = {
-  [StackRouteName.Home]: undefined;
+  [StackRouteName.TodoList]: undefined;
 };

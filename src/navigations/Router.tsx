@@ -2,17 +2,17 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {StackParamList, StackRouteName} from './type';
-import Home from '../features/Home';
+import TodoList from '../features/ToDoList';
 import LanguageSwitch from '../components/LanguageSwitch';
 
 const Stack = createNativeStackNavigator<StackParamList>();
 
 const renderAppStacks = (): JSX.Element => {
   return (
-    <Stack.Navigator initialRouteName={StackRouteName.Home}>
+    <Stack.Navigator initialRouteName={StackRouteName.TodoList}>
       <Stack.Screen
-        name={StackRouteName.Home}
-        component={Home}
+        name={StackRouteName.TodoList}
+        component={TodoList}
         options={{headerRight: () => <LanguageSwitch />}}
       />
     </Stack.Navigator>
