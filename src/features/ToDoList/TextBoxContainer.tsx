@@ -10,9 +10,11 @@ const TextBoxContainer = (): JSX.Element => {
   const dispatch = useDispatch();
   const [textVal, setTextVal] = useState('');
   const addBtn = () => {
-    const trimmedText = textVal.trim();
-    dispatch(addTodo(trimmedText));
-    setTextVal('');
+    if (textVal) {
+      const trimmedText = textVal.trim();
+      dispatch(addTodo(trimmedText));
+      setTextVal('');
+    }
   };
 
   return (

@@ -17,8 +17,8 @@ const todoSlice = createSlice({
       reducer: (state, action: PayloadAction<Todo>) => {
         state.push(action.payload);
       },
+      // Customize value
       prepare: (description: string) => ({
-        // Customize value
         payload: {
           id: uuid.v4(),
           description,
