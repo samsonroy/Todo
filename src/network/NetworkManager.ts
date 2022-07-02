@@ -19,7 +19,6 @@ appClient.interceptors.request.use(config => {
     //@ts-ignore
     config.headers.common.Authorization = `Bearer ${accessToken}`;
   }
-  console.log('config', config);
   return config;
 });
 

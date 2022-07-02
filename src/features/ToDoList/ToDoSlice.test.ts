@@ -1,4 +1,3 @@
-import uuid from 'react-native-uuid';
 import reducer, {addTodo, Todo} from './ToDoSlice';
 
 test('should return the initial state', () => {
