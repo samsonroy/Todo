@@ -19,6 +19,10 @@ const ToDoListItem = ({item}: {item: Todo}): JSX.Element => {
     dispatch(removeTodo(id));
   };
 
+  /**
+   * Component composition pattern
+   */
+
   return (
     <TodoCard
       text={<Text style={styles.textStyle}>{description}</Text>}

@@ -1,7 +1,6 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
-import {scale} from '../../utils/scale';
 import TextBoxContainer from './TextBoxContainer';
 import ToDoList from './ToDoList';
 
@@ -24,10 +23,7 @@ const TodoList = (): JSX.Element => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: scale(20),
-  },
+  container: {flex: 1},
 });
 
 export default TodoList;

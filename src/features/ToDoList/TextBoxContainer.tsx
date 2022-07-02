@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    margin: scale(10),
   },
   btnStyle: {
     borderWidth: 1,

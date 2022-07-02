@@ -1,8 +1,9 @@
 import {configureStore} from '@reduxjs/toolkit';
+import todoAPISlice from './features/ToDoApiList/TodoApiList';
 import todosReducer from './features/ToDoList/ToDoSlice';
 
 export const store = configureStore({
-  reducer: todosReducer,
+  reducer: {todos: todosReducer, todosList: todoAPISlice},
 });
 
 export type AppDispatch = typeof store.dispatch;
