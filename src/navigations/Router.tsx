@@ -37,7 +37,7 @@ const renderAppStacks = (): JSX.Element => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name={StackRouteName.Home}
+        name={StackRouteName.TodoApp}
         component={RenderBottomTab}
         options={{headerRight: () => <LanguageSwitch />}}
       />

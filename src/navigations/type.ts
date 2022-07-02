@@ -9,9 +9,9 @@ export type BottomStackParamList = {
 };
 
 export enum StackRouteName {
-  Home = 'home',
+  TodoApp = 'TodoApp',
 }
 
 export type StackParamList = {
-  [StackRouteName.Home]: undefined;
+  [StackRouteName.TodoApp]: undefined;
 };

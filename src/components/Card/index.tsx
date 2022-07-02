@@ -26,6 +26,7 @@ const TodoCard = ({
           disabled={false}
           value={toggleCheckBox}
           onValueChange={newValue => setToggleCheckBox(newValue)}
+          style={styles.checkbox}
         />
         {text}
       </View>
@@ -59,6 +60,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 23,
     backgroundColor: Colors.yellow,
+  },
+  checkbox: {
+    width: scale(10),
+    height: verticalScale(20),
+    marginRight: scale(4),
   },
 });
 
