@@ -36,7 +36,7 @@ const ToDoListItem = ({item}: {item: Todo}): JSX.Element => {
 
 const styles = StyleSheet.create({
   textStyle: {
-    marginLeft: scale(10),
+    paddingLeft: scale(10),
     alignSelf: 'center',
   },
 });

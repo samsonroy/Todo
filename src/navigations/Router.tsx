@@ -18,7 +18,9 @@ const BottomTab = createBottomTabNavigator<BottomStackParamList>();
 
 const RenderBottomTab = (): JSX.Element => {
   return (
-    <BottomTab.Navigator initialRouteName={BottomStackRouteName.TodoList}>
+    <BottomTab.Navigator
+      initialRouteName={BottomStackRouteName.TodoList}
+      screenOptions={{tabBarHideOnKeyboard: true}}>
       <BottomTab.Screen
         name={BottomStackRouteName.TodoList}
         component={TodoList}

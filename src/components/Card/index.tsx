@@ -40,10 +40,11 @@ const TodoCard = ({
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: scale(5),
+    padding: scale(8),
     borderWidth: 1,
     borderRadius: 4,
     marginVertical: verticalScale(5),
@@ -51,6 +52,7 @@ const styles = StyleSheet.create({
   innerBox: {
     display: 'flex',
     flexDirection: 'row',
+    flex: 0.8,
   },
   deleteBox: {
     width: moderateScale(30),
@@ -62,9 +64,8 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.yellow,
   },
   checkbox: {
-    width: scale(10),
+    width: scale(20),
     height: verticalScale(20),
-    marginRight: scale(4),
   },
 });
 

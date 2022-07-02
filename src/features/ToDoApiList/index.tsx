@@ -1,5 +1,11 @@
-import React, {useEffect} from 'react';
-import {FlatList, StyleSheet, Text, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {
+  ActivityIndicator,
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {loginUser} from '../../services/auth.service';
 import {getTasks} from '../../services/todos.service';
@@ -19,19 +25,41 @@ const keyExtractor = (item: Todos) => item._id;
 
 const TodoApiList = (): JSX.Element => {
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
   const todoList = useSelector((state: RootState) => state.todosList);
 
   useEffect(() => {
-    loginUser({email: 'muh.nurali43@gmail.com', password: '12345678'}).then(
-      res => dispatch(saveToken(res.token)),
-    );
+    setLoading(true);
+    loginUser({email: 'muh.nurali43@gmail.com', password: '12345678'})
+      .then(res => {
+        setLoading(false);
+        dispatch(saveToken(res.token));
+      })
+      .catch(_ => {
+        // Show some toast message
+        setLoading(false);
+      });
   }, [dispatch]);
 
   useEffect(() => {
     if (todoList.token !== '' && todoList.todos?.length === 0) {
-      getTasks().then(res => dispatch(saveTodosList(res.data)));
+      setLoading(true);
+      getTasks()
+        .then(res => {
+          setLoading(false);
+          dispatch(saveTodosList(res.data));
+        })
+        .catch(e => {
+          // Show some toast message
+          setLoading(false);
+          console.info('error', e);
+        });
     }
   }, [dispatch, todoList]);
+
+  if (loading) {
+    return <ActivityIndicator size={'small'} style={styles.indicator} />;
+  }
 
   return (
     <>
@@ -48,6 +76,10 @@ const TodoApiList = (): JSX.Element => {
 const styles = StyleSheet.create({
   containerStyle: {
     padding: scale(10),
+  },
+  indicator: {
+    flex: 1,
+    alignItems: 'center',
   },
   listContainer: {
     borderWidth: 1,
