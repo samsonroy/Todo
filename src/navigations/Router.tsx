@@ -12,11 +12,13 @@ import TodoList from '../features/ToDoList';
 import LanguageSwitch from '../components/LanguageSwitch';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import TodoApiList from '../features/ToDoApiList';
+import {useTranslation} from 'react-i18next';
 
 const Stack = createNativeStackNavigator<StackParamList>();
 const BottomTab = createBottomTabNavigator<BottomStackParamList>();
 
 const RenderBottomTab = (): JSX.Element => {
+  const {t} = useTranslation();
   return (
     <BottomTab.Navigator
       initialRouteName={BottomStackRouteName.TodoList}
@@ -24,12 +26,12 @@ const RenderBottomTab = (): JSX.Element => {
       <BottomTab.Screen
         name={BottomStackRouteName.TodoList}
         component={TodoList}
-        options={{headerShown: false}}
+        options={{headerShown: false, title: t('todo')}}
       />
       <BottomTab.Screen
         name={BottomStackRouteName.TodoListAPI}
         component={TodoApiList}
-        options={{headerShown: false}}
+        options={{headerShown: false, title: t('list')}}
       />
     </BottomTab.Navigator>
   );

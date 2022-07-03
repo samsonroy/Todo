@@ -7,17 +7,21 @@ import {Colors} from '../../assets';
 type IProps = {
   text: JSX.Element;
   icon: JSX.Element;
+  editIcon: JSX.Element;
   toggleCheckBox: boolean;
   setToggleCheckBox: (x: boolean) => void;
   onDelete: () => void;
+  onEdit: () => void;
 };
 
 const TodoCard = ({
   text,
   icon,
+  editIcon,
   toggleCheckBox,
   setToggleCheckBox,
   onDelete,
+  onEdit,
 }: IProps): JSX.Element => {
   return (
     <View style={styles.container}>
@@ -30,9 +34,14 @@ const TodoCard = ({
         />
         {text}
       </View>
-      <TouchableOpacity style={styles.deleteBox} onPress={onDelete}>
-        {icon}
-      </TouchableOpacity>
+      <View style={styles.actionItems}>
+        <TouchableOpacity style={styles.deleteBox} onPress={onEdit}>
+          {editIcon}
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.deleteBox} onPress={onDelete}>
+          {icon}
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -54,6 +63,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flex: 0.8,
   },
+  actionItems: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
   deleteBox: {
     width: moderateScale(30),
     height: verticalScale(30),
@@ -62,6 +75,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 23,
     backgroundColor: Colors.yellow,
+    margin: 2,
   },
   checkbox: {
     width: scale(20),

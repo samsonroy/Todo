@@ -1,6 +1,8 @@
 {
   "translation": {
     "addtodo": "Add a todo",
-    "add": "Add"
+    "add": "Add",
+    "todo": "Todo",
+    "list": "List"
   }
 }

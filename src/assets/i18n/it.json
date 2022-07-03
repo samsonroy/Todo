@@ -1,6 +1,8 @@
 {
   "translation": {
     "addtodo": "Aggiungi una cosa da fare",
-    "add": "Aggiungere"
+    "add": "Aggiungere",
+    "todo": "tutto",
+    "list": "elenco"
   }
 }
