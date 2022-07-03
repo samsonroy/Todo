@@ -1,4 +1,4 @@
-import reducer, {addTodo, removeTodo, Todo} from './ToDoSlice';
+import reducer, {addTodo, removeTodo, setTodoStatus, Todo} from './ToDoSlice';
 
 test('should return the initial state', () => {
   expect(reducer(undefined, {type: undefined})).toEqual([]);
@@ -31,5 +31,19 @@ test('Shoul handle a todo being removed from the existing todos list', () => {
 
   expect(reducer(previousState, removeTodo('0'))).toEqual([
     {description: 'Run the tests', completed: true, id: expect.any(String)},
+  ]);
+});
+
+test('Should handle a todo status change', () => {
+  const previousState: Todo[] = [
+    {description: 'Run the tests', completed: true, id: '0'},
+    {description: 'Use Redux', completed: false, id: '1'},
+  ];
+
+  expect(
+    reducer(previousState, setTodoStatus({completed: false, id: '0'})),
+  ).toEqual([
+    {description: 'Run the tests', completed: false, id: '0'},
+    {description: 'Use Redux', completed: false, id: '1'},
   ]);
 });
