@@ -2,6 +2,9 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {useTranslation} from 'react-i18next';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+
 import {
   BottomStackParamList,
   BottomStackRouteName,
@@ -10,9 +13,10 @@ import {
 } from './type';
 import TodoList from '../features/ToDoList';
 import LanguageSwitch from '../components/LanguageSwitch';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
 import TodoApiList from '../features/ToDoApiList';
-import {useTranslation} from 'react-i18next';
+
+import Home from '../assets/svg/home.svg';
+import Rocket from '../assets/svg/rocket.svg';
 
 const Stack = createNativeStackNavigator<StackParamList>();
 const BottomTab = createBottomTabNavigator<BottomStackParamList>();
@@ -26,12 +30,20 @@ const RenderBottomTab = (): JSX.Element => {
       <BottomTab.Screen
         name={BottomStackRouteName.TodoList}
         component={TodoList}
-        options={{headerShown: false, title: t('todo')}}
+        options={{
+          headerShown: false,
+          title: t('todo'),
+          tabBarIcon: () => <Home />,
+        }}
       />
       <BottomTab.Screen
         name={BottomStackRouteName.TodoListAPI}
         component={TodoApiList}
-        options={{headerShown: false, title: t('list')}}
+        options={{
+          headerShown: false,
+          title: t('list'),
+          tabBarIcon: () => <Rocket />,
+        }}
       />
     </BottomTab.Navigator>
   );
