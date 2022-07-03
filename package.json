@@ -19,6 +19,7 @@
     "add": "^2.0.6",
     "axios": "^0.27.2",
     "i18next": "^21.8.11",
+    "identity-obj-proxy": "^3.0.0",
     "react": "18.0.0",
     "react-i18next": "^11.17.4",
     "react-native": "0.69.0",
@@ -55,6 +56,9 @@
   },
   "jest": {
     "preset": "react-native",
+    "moduleNameMapper": {
+      "\\.(svg|png)$": "identity-obj-proxy"
+    },
     "moduleFileExtensions": [
       "ts",
       "tsx",
