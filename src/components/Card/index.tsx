@@ -1,7 +1,8 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
-import {moderateScale, scale, verticalScale} from '../../utils/scale';
 import CheckBox from '@react-native-community/checkbox';
+
+import {moderateScale, scale, verticalScale} from '../../utils/scale';
 import {Colors} from '../../assets';
 
 type IProps = {
